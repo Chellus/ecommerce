@@ -4,6 +4,7 @@ package com.datapar.ecommerce.Productos;
 
 import com.datapar.ecommerce.Categoria.Categoria;
 import com.datapar.ecommerce.Categoria.CategoriaDTO;
+import com.datapar.ecommerce.Categoria.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class ProductoService {
 
     @Autowired
     private ProductoRepository productoRepository;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
     public List<ProductoDTO> getAllProductos() {
         List<Producto> prductos = productoRepository.findAllActive();
@@ -78,6 +81,8 @@ public class ProductoService {
         producto.setStock(productoDTO.getStock());
         producto.setPrecio(productoDTO.getPrecio());
         producto.setImagen(productoDTO.getImagen());
+        System.out.println(productoDTO.getCategoriaId());
+        producto.setCategoria(categoriaRepository.findByIdActive(productoDTO.getCategoriaId()).get());
         return producto;
     }
 
@@ -88,7 +93,7 @@ public class ProductoService {
         productoDTO.setDescripcion(producto.getDescripcion());
         productoDTO.setPrecio(producto.getPrecio());
         productoDTO.setImagen(producto.getImagen());
-        productoDTO.setCategoriaId(productoDTO.getCategoriaId());
+        productoDTO.setCategoriaId(producto.getCategoria().getId());
         return productoDTO;
 
     }

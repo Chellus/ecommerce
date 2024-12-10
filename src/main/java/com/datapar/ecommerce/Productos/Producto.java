@@ -87,4 +87,12 @@ public class Producto {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
