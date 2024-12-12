@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,4 +27,6 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    private Date deletedAt;
 }

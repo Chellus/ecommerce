@@ -1,9 +1,14 @@
 package com.datapar.ecommerce.Categoria;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CategoriaDTO {
     private Long id;
     private String nombre;
     private String descripcion;
+
+    private List<Long> productosId = new ArrayList<>();
 
     public CategoriaDTO() {}
 

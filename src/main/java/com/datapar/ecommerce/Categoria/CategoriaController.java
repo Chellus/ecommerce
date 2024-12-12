@@ -16,6 +16,7 @@ public class CategoriaController {
     @GetMapping
     public ResponseEntity<List<CategoriaDTO>> getAllCategorias() {
         List<CategoriaDTO> categorias = categoriaService.getAllCategorias();
+        System.out.println("getAllCategorias llamado");
         return new ResponseEntity<>(categorias, HttpStatus.OK);
     }
 

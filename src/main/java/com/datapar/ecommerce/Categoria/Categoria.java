@@ -1,9 +1,11 @@
 package com.datapar.ecommerce.Categoria;
 
+import com.datapar.ecommerce.Productos.Producto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Categoria {
@@ -17,6 +19,9 @@ public class Categoria {
     private String descripcion;
 
     private Date deletedAt;
+
+    @OneToMany
+    private List<Producto> productos;
 
     public Categoria() {
 
