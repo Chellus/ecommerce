@@ -92,6 +92,7 @@ public class ProductoService {
         productoDTO.setNombre(producto.getNombre());
         productoDTO.setDescripcion(producto.getDescripcion());
         productoDTO.setPrecio(producto.getPrecio());
+        productoDTO.setStock(producto.getStock());
         productoDTO.setImagen(producto.getImagen());
         productoDTO.setCategoriaId(producto.getCategoria().getId());
         return productoDTO;

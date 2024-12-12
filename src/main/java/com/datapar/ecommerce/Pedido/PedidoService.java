@@ -146,6 +146,7 @@ public class PedidoService {
                 detallePedido.setProducto(producto);
                 detallePedido.setCantidad(detallePedidoDTO.getCantidad());
                 detallePedido.setSubTotal(producto.getPrecio() * detallePedidoDTO.getCantidad());
+                nuevosDetalles.add(detallePedido);
                 pedidoExistente.getDetalles().add(detallePedido);
             }
 
@@ -185,8 +186,7 @@ public class PedidoService {
 
     private PedidoDTO toPedidoDTO(Pedido pedido) {
         PedidoDTO pedidoDTO = new PedidoDTO();
-        List<DetallePedido> detallePedidos = detallePedidoRepository.findByPedidoIdActive(pedido.getId())
-                .orElseThrow(() -> new AppException("Pedido no existe", HttpStatus.NOT_FOUND));
+        List<DetallePedido> detallePedidos = pedido.getDetalles();
         pedidoDTO.setPedidoId(pedido.getId());
         pedidoDTO.setClienteId(pedido.getCliente().getId());
 

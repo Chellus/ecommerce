@@ -31,7 +31,7 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detalles;
 
     private double total;
